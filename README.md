@@ -40,3 +40,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - [ ] Day 0
  - initialize project
  - connect project to GIT
+ - Set up shadcn
+ - [ ] Day 1
+  - Create database and connect it to do code
+  - Test CRUD with postman  
+  - create basic components [header, footer]
+  - make the folder structure correct
+- [ ] Day 2
