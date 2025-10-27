@@ -26,4 +26,17 @@ export const getFoodCategory = async (req, res) =>{
         res.status(500).send("error getting food categories")
     }
     
+}   
+export const updateFoodCategory = async (req, res) => {
+    const {body} = req;
+
+    const {id} = req.params;
+    try {
+        console.log(body)
+        await FoodCategory.findByIdAndUpdate(id, body)
+        res.status(200).send("successfully updated")
+        
+    } catch (error) {
+        res.status(500).send("there was an error with updating")
+    }
 }
