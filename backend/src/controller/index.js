@@ -40,12 +40,20 @@ export const updateFoodCategory = async (req, res) => {
     }
 }
 export const deleteFoodCatergory = async (req, res) =>{
-    console.log(req)
     const {id} = req.params;
     try {
         await FoodCategory.findByIdAndDelete(id)
         res.status(200).send("deletion completed")
     } catch (error) {
         res.status(500).send(error, "error")
+    }
+}
+export const getFoodCategoryById = async (req, res) =>{
+    const {id} = req.params;
+    try {
+        const result = await FoodCategory.findById(id);
+        res.status(200).send(result)
+    } catch (error) {
+        res.status(500).send("problem occurred")
     }
 }
