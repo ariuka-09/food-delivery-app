@@ -54,6 +54,6 @@ export const getFoodCategoryById = async (req, res) =>{
         const result = await FoodCategory.findById(id);
         res.status(200).send(result)
     } catch (error) {
-        res.status(500).send("problem might occurred")
+        res.status(500).send("looking quite complicated")
     }
 }
