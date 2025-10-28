@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createFoodCategory, deleteFoodCatergory, getFoodCategory, getFoodCategoryById, updateFoodCategory } from "../controller/index.js";
+import { createFoodCategory, deleteFoodCatergory, getFoodCategory, getFoodCategoryById, updateFoodCategory } from "../controller/foodCategory.js";
 
 export const foodCategoryRouter = Router();
 foodCategoryRouter
