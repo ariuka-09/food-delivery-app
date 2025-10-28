@@ -5,3 +5,4 @@ import mongoose, { Schema } from "mongoose";
     categoryName: {type: String, required: true}
 }, {timestamps:true} )
 export const FoodCategory = mongoose.model("foodCategory", FoodCategorySchema);
+
