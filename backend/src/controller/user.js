@@ -40,8 +40,12 @@ export const logIn = async (req, res) =>{
     try {
         const {email, password} = req.body;
         const isRegistered = await User.findOne({email:email});
-        console.log("is regis", isRegistered)
-        const isCorrectPass =await bcrypt.compare(password, isRegistered.password)
+        if(!isRegistered){
+            res.status(404).send("email hasnt been registered");
+
+        }
+        console.log("is regis", isRegistered);
+           const isCorrectPass =await bcrypt.compare(password, isRegistered.password)
         if(isCorrectPass){
             res.status(200).send("log in successful");
         }else{
@@ -52,3 +56,16 @@ export const logIn = async (req, res) =>{
         res.status(500).send(error, "error")
     }
 }
+export const updateUser = async (req, res) =>{
+    try {
+        const {id} = req.params
+        console.log("id", req.body)
+         const user = await User.findByIdAndUpdate(id, req.body)
+        res.status(200).send(user)
+    } catch (error) {
+        res.status(500).send("error", error)
+    }
+}
+
+//$2b$04$5yubJXCE0isopb7mlQVQWuGmKDLbWEkS0FedMnXnzg331ZqSzhKfy
+//$2b$04$5yubJXCE0isopb7mlQVQWuGmKDLbWEkS0FedMnXnzg331ZqSzhKfy
