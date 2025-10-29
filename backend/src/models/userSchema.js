@@ -1,5 +1,4 @@
 import mongoose, { Schema } from "mongoose";
-import { type } from "os";
 
  const UserSchema = new Schema ({
     email:{type:String, required:true},
