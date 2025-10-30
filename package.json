@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "concurrently \"npm run dev --prefix backend\" \"next dev\"",
     "build": "next build",
     "start": "node index.js",
     "lint": "eslint"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
+    "axios": "^1.13.1",
     "body-parser": "^2.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -27,6 +28,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "16.0.0",
     "nodemon": "^3.1.10",
