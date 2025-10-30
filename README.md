@@ -44,6 +44,15 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
  - [ ] Day 1
   - Create database and connect it to do code
   - Test CRUD with postman  
-  - create basic components [header, footer]
   - make the folder structure correct
 - [ ] Day 2
+ - create basic components [header, footer, food card]
+ - add special offer section
+- [ ] Day 3
+ - Map out the four categories [Appetizers, Salads, Launch favourites, Salads]
+ - Improve home page's CSS
+- [ ] Day 4
+ - Initialize search page
+ - finish visual part of the page
+ - implement regex for the email input section
+ - add the second page, complete password matching logic 
