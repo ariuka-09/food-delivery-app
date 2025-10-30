@@ -29,6 +29,7 @@ export default async function Home() {
                     return (
                       <p className="font-bold" key={food._id}>
                         {foodName}
+                        hello
                       </p>
                     );
                 })}
