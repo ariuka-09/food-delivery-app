@@ -16,19 +16,22 @@ export default async function Home() {
 
   return (
     <div>
-      <div>
+      <div className="flex flex-col gap-10">
         {foodCategories.data.map((categories) => {
           const { _id, categoryName } = categories;
           return (
-            <div>
+            <div className="" key={_id}>
               <div>{categoryName}</div>
               <div>
-                <p className="font-bold">
-                  {foods.data.map((food) => {
-                    const { foodName, category } = food;
-                    if (_id == category) return foodName;
-                  })}
-                </p>
+                {foods.data.map((food) => {
+                  const { foodName, category } = food;
+                  if (_id == category)
+                    return (
+                      <p className="font-bold" key={food._id}>
+                        {foodName}
+                      </p>
+                    );
+                })}
               </div>
             </div>
           );
