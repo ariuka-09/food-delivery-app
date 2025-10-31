@@ -1,3 +1,4 @@
+import { Card } from "@/components/ui/card";
 import { Food, FoodCategory } from "@/types";
 import axios from "axios";
 import Image from "next/image";
@@ -25,13 +26,9 @@ export default async function Home() {
               <div>
                 {foods.data.map((food) => {
                   const { foodName, category } = food;
-                  if (_id == category)
-                    return (
-                      <p className="font-bold" key={food._id}>
-                        {foodName}
-                        hello
-                      </p>
-                    );
+                  if (_id == category){
+                    return (<Card/>)
+                  }
                 })}
               </div>
             </div>

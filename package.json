@@ -6,7 +6,10 @@
     "dev": "concurrently \"npm run dev --prefix backend\" \"next dev\"",
     "build": "next build",
     "start": "node index.js",
-    "lint": "eslint"
+    "lint": "eslint",
+    "start-dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "node server.js",
+    "frontend": "npm start --prefix client"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
