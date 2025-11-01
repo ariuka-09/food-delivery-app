@@ -26,8 +26,8 @@ export default async function Home() {
               <div>
                 {foods.data.map((food) => {
                   const { foodName, category } = food;
-                  if (_id == category){
-                    return (<Card/>)
+                  if (_id == category) {
+                    return <Card />;
                   }
                 })}
               </div>
