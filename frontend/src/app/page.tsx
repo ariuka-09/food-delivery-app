@@ -1,3 +1,4 @@
+import { Foodcard } from "@/components/Foodcard";
 import { Card } from "@/components/ui/card";
 import { Food, FoodCategory } from "@/types";
 import axios from "axios";
@@ -13,7 +14,6 @@ export default async function Home() {
   );
 
   const foods = await axios.get<Food[]>("http://localhost:5000/food");
-  console.log("food data", foods.data);
 
   return (
     <div>
@@ -26,8 +26,9 @@ export default async function Home() {
               <div>
                 {foods.data.map((food) => {
                   const { foodName, category } = food;
+
                   if (_id == category) {
-                    return <Card />;
+                    return <Foodcard Food={food} />;
                   }
                 })}
               </div>

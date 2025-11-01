@@ -6,3 +6,9 @@ export type Food = {
   price: number;
   category: string;
 };
+export type foodInfo = {
+  img: string;
+  name: string;
+  price: number;
+  ingredients: string;
+};
