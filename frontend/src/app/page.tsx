@@ -16,14 +16,14 @@ export default async function Home() {
   const foods = await axios.get<Food[]>("http://localhost:5000/food");
 
   return (
-    <div>
+    <div className="bg-[#404040]">
       <div className="flex flex-col gap-10">
         {foodCategories.data.map((categories) => {
           const { _id, categoryName } = categories;
           return (
             <div className="" key={_id}>
-              <div>{categoryName}</div>
-              <div>
+              <div className="text-white">{categoryName}</div>
+              <div className="flex flex-wrap">
                 {foods.data.map((food) => {
                   const { foodName, category } = food;
 
