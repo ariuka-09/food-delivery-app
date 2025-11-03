@@ -1,9 +1,12 @@
 import { User } from "../models/userSchema.js";
 import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
 
 export const signUp = async (req, res)=>{
     const {email, password} = req.body
     try {
+        // const token = jwt.sign({name: "ariun", age:"16" }, "aimrnuutscode", {expiresIn:'1h'})
+        // console.log('mytoken', token)
         const isRegistered = await User.findOne({email:email});
 
         
@@ -40,6 +43,7 @@ export const logIn = async (req, res) =>{
     try {
         const {email, password} = req.body;
         const isRegistered = await User.findOne({email:email});
+
         if(!isRegistered){
             res.status(404).send("email hasnt been registered");
 
@@ -47,7 +51,9 @@ export const logIn = async (req, res) =>{
         console.log("is regis", isRegistered);
            const isCorrectPass =await bcrypt.compare(password, isRegistered.password)
         if(isCorrectPass){
-            res.status(200).send("log in successful");
+            
+            const token = jwt.sign(isRegistered.toObject(), "aimrnuutscode",{expiresIn:'1h'})
+            res.status(200).send({ res:isRegistered,token:token});
         }else{
             res.status(401).send("wrong password");
         }
