@@ -3,14 +3,12 @@ import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 
 export const signUp = async (req, res)=>{
-    const {email, password} = req.body
+    console.log("post huselt", req.body)
+    const {email, password} =  req.body
     try {
         // const token = jwt.sign({name: "ariun", age:"16" }, "aimrnuutscode", {expiresIn:'1h'})
         // console.log('mytoken', token)
         const isRegistered = await User.findOne({email:email});
-
-        
-        
         if(!isRegistered){
              const hashedPassword  = bcrypt.hashSync(password, 1)
                 console.log("hashedpass", hashedPassword);
@@ -22,13 +20,12 @@ export const signUp = async (req, res)=>{
         }else{
         res.status(401).send("this email has already been registered")
         }
-
      
     } catch (error) {
         res.status(500).send("error with creating a user")
         console.log("error", error);
         
-    }
+      }
 }
 export const getUsers = async (req, res)=>{
     try {
@@ -73,6 +70,20 @@ export const updateUser = async (req, res) =>{
     }
 }
 
-//$2b$04$5yubJXCE0isopb7mlQVQWuGmKDLbWEkS0FedMnXnzg331ZqSzhKfy
-//$2b$04$5yubJXCE0isopb7mlQVQWuGmKDLbWEkS0FedMnXnzg331ZqSzhKfy
-//$2b$04$5yubJXCE0isopb7mlQVQWuGmKDLbWEkS0FedMnXnzg331ZqSzhKfy
+export const getUserById = async (req, res) =>{
+    console.log("token irsnuu?", req.token)
+    try {
+        const {id} = await req.params;
+
+        const authorizationHeader = req.get('Authorization');
+
+        console.log({authorizationHeader});
+
+
+        const user = await User.findOne({_id:id})
+        res.status(210).send('')
+    } catch (error) {
+        res.status(500).send(error);
+        
+    }
+}

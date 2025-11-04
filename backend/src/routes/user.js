@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { getUsers, logIn, signUp, updateUser } from "../controller/user.js";
+import { getUserById, getUsers, logIn, signUp, updateUser } from "../controller/user.js";
+import { verifyToken } from "../middleware/auth.js";
 
 export const userRouter = Router();
 userRouter
@@ -7,3 +8,4 @@ userRouter
 .get('/', getUsers)
 .post('/logIn',logIn )
 .patch('/:id', updateUser)
+.get('/:id',verifyToken, getUserById )
