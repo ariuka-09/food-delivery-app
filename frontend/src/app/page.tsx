@@ -28,7 +28,7 @@ export default async function Home() {
                   const { foodName, category } = food;
 
                   if (_id == category) {
-                    return <Foodcard Food={food} />;
+                    return <Foodcard key={food._id} Food={food} />;
                   }
                 })}
               </div>
