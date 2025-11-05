@@ -1,4 +1,4 @@
-import { configDotenv } from "dotenv";
+import dotenv from "dotenv"
 import express from "express"
 import { connectDB } from "./database/db.js";
 import bodyParser from "body-parser";
@@ -8,7 +8,7 @@ import { foodRouter } from "./routes/food.js";
 import cors from "cors"
 
 
-configDotenv();
+dotenv.config();
 const port = process.env.PORT;
 
 const app = express();
@@ -30,6 +30,14 @@ app.use('/food', foodRouter)
 app.listen(port, ()=>{
     console.log("server is live", port)
     connectDB();
+})
+
+connectDB().then(()=>{
+    app.listen(port, ()=>{
+        console.log("server is live", port)
+    });
+}).catch(err=>{
+    console.error("failed to connect to mongoDB", err)
 })
 // import { configDotenv } from "dotenv";
 // import express from "express";
