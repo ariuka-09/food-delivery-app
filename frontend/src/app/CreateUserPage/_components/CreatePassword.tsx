@@ -6,21 +6,20 @@ import { useState } from "react";
 
 
 
-export  function CreatePassword  (props:{setPassword: (index: number) => void, setCurrentIndex: (index: number) => void}){
+export  function CreatePassword  (props:{ signUp: (password:string, email:string) => void, email:string}){
 
 
-    const {setPassword, setCurrentIndex} = props
+    const {signUp, email} = props
     const passFunction  = async (event: React.SyntheticEvent<HTMLFormElement>) =>{
         event.preventDefault()
         const formData = new FormData(event.currentTarget);
 
-        const confirm = formData.get('confirm')
-        const password = formData.get('password')
+        const confirm = (formData.get('confirm'))
+        const password = (formData.get('password'))?.toString()
         // const email = data.get('email')
         try {
             if(confirm === password){
-                setPassword(password);
-                setCurrentIndex(2)
+               signUp(password, email)
                 console.log("password created", password)
             }
             // const {data} = await axios.post('http://localhost:5000/user/signUp', {

@@ -15,7 +15,7 @@ const {setEmail, setCurrentIndex, currentIndex} = props
 const emailFunction = async (event:React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData =  new FormData(event.currentTarget)
-    const email = formData.get('email')
+    const email = formData.get('email')?.toString()
     console.log('email', email);
     
     if(email){
