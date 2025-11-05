@@ -10,7 +10,7 @@ export const signUp = async (req, res)=>{
         // console.log('mytoken', token)
         const isRegistered = await User.findOne({email:email});
         if(!isRegistered){
-             const hashedPassword  = bcrypt.hashSync(password, 1)
+             const hashedPassword = bcrypt.hashSync(password, 10)
                 console.log("hashedpass", hashedPassword);
             User.create({
                 email:email,
