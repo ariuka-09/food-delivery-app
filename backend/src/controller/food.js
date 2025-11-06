@@ -18,6 +18,8 @@ export const createFood =  async (req, res) =>{
 }
 export const getFood = async(req, res) =>{
     try {
+        console.log("GETTING FOOD REQ WORKS");
+        
         const result = await Food.find();    
         res.status(200).send(result)
     } catch (error) {

@@ -19,6 +19,8 @@ export const createFoodCategory = async (req, res) =>{
 export const getFoodCategory = async (req, res) =>{
     
     const {body} = req;
+    console.log("CATEGORY REQ WORKS");
+    
     try {
         const result = await FoodCategory.find();
         res.send(result)
