@@ -10,10 +10,10 @@ export default async function Home() {
   // console.log(data);
 
   const foodCategories = await axios.get<FoodCategory[]>(
-    "http://localhost:5000/foodCategory"
+    "https://food-delivery-backend-iar224lxh-ariuntuguldurs-projects.vercel.app/foodCategory"
   );
 
-  const foods = await axios.get<Food[]>("http://localhost:5000/food");
+  const foods = await axios.get<Food[]>("https://food-delivery-backend-iar224lxh-ariuntuguldurs-projects.vercel.app/food");
 
   return (
     <div className="bg-[#404040]">

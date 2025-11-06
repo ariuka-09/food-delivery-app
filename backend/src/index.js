@@ -13,23 +13,24 @@ const port = process.env.PORT;
 
 const app = express();
 
-
-
-
 app.use(cors({
     origin: "*",
 }))
 
 app.use(express.json());
+connectDB();
 
 app.use('/foodCategory', foodCategoryRouter)
 app.use('/user', userRouter)
 app.use('/food', foodRouter)
 
 
+app.get('/', (_,res) => {
+    res.status(200).json("server is running").end()
+})
+
 app.listen(port, ()=>{
     console.log("server is live", port)
-    connectDB();
 })
 // import { configDotenv } from "dotenv";
 // import express from "express";

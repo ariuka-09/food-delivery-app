@@ -28,12 +28,13 @@ export const signUp = async (req, res)=>{
       }
 }
 export const getUsers = async (req, res)=>{
-    try {
+    // try {
+
+    // } catch (error) {
+    // res.status(403).send("cant get users")    
+    // }
     const result = await User.find();
     res.status(200).send(result);
-    } catch (error) {
-    res.status(403).send("cant get users")    
-    }
     
 }
 export const logIn = async (req, res) =>{
