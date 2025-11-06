@@ -1,4 +1,5 @@
 import { Foodcard } from "@/components/Foodcard";
+import { Navbar } from "@/components/Navbar";
 import { Card } from "@/components/ui/card";
 import { Food, FoodCategory } from "@/types";
 import axios from "axios";
@@ -10,13 +11,14 @@ export default async function Home() {
   // console.log(data);
 
   const foodCategories = await axios.get<FoodCategory[]>(
-    "https://food-delivery-backend-iar224lxh-ariuntuguldurs-projects.vercel.app/foodCategory"
+    "https://food-delivery-backend-roan-three.vercel.app/foodCategory"
   );
 
-  const foods = await axios.get<Food[]>("https://food-delivery-backend-iar224lxh-ariuntuguldurs-projects.vercel.app/food");
+  const foods = await axios.get<Food[]>("https://food-delivery-backend-roan-three.vercel.app/food");
 
   return (
     <div className="bg-[#404040]">
+      <Navbar/>
       <div className="flex flex-col gap-10">
         {foodCategories.data.map((categories) => {
           const { _id, categoryName } = categories;

@@ -13,3 +13,4 @@ export type foodInfo = {
   price: number;
   ingredients: string;
 };
+
