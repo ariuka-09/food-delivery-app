@@ -1,3 +1,4 @@
+import axios from "axios";
 import { clsx, type ClassValue } from "clsx";
 import { headers } from "next/headers";
 import { twMerge } from "tailwind-merge";
@@ -5,9 +6,9 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-// export const axiosInstance = axios.create({
-//   baseURL: "http://localhost:5000",
-//   headers:{
-//     Auth
-//   }
-// });
+export const axiosInstance = axios.create({
+  baseURL: "https://food-delivery-backend-roan-three.vercel.app/",
+  // headers: {
+  //   Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_TOKEN}`,
+  // },
+});
